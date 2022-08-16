@@ -18,10 +18,13 @@ $(document).ready(function(){
 
     $(".confirm-btn").click(function(){
         items = generate_submit_data()
-        $.ajax({
+       $.ajax({
             type: "POST",
             url: "/cart/confirm-cart",
             data: JSON.stringify ({"items": items}),
+            headers: {
+                "X-CSRFToken" : CSRF_TOKEN,
+            },
             success: function(result){
                 console.log(result)
                 if (result['errors'].length > 0){

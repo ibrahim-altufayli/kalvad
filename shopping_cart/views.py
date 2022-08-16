@@ -2,8 +2,6 @@ from xmlrpc.client import DateTime
 from django.shortcuts import render
 from django.views.generic import View
 from .models import ShoppingCart, ShoppingCartProductUnitItem, CartStatus
-from django.views.decorators.csrf import csrf_exempt
-from django.utils.decorators import method_decorator
 from django.http import JsonResponse
 from products.models import ProductUnit
 import datetime
@@ -34,7 +32,7 @@ class OpenedCartDetails(View):
         except ShoppingCart.DoesNotExist:
             return render(request=request, template_name="shopping_cart/cart_not_found.html")
 
-@method_decorator(csrf_exempt, name='dispatch')
+
 class ConfirmCartView(View):
     def post(self, request):
         #parse data
