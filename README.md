@@ -6,6 +6,7 @@ To Install and run the application, we have to do the following steps:
 - Install Pillow /We have used images for products/ run "pip install pillow" on cmd.
 - It is more prefarable to create and activate a virtual enviroment to isolate project libs from global one.
 - Navigate to the project root and run "python manage.py runserver" / you do not need to makeigrations or migrate or createsuperuser because the project is shipped with sqllite file that hold everything.
+- No need to collect static file, files already collected
 -You can access the admin by visiting http://127.0.0.1/admin and using username=kalvad/password=P@ssw0rd
 - We can define new products, product units, shopping carts, cart items inside the admin(I did not adjusted the admin UI or functionality but it serve the need of creating the required entites).
 -We can change the inventory storage quantity from the admin by navigating to http://127.0.0.1:8000/admin/products/inventroyproductunitstorage/
