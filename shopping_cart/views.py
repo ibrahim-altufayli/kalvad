@@ -70,7 +70,7 @@ class ConfirmCartView(View):
                 cart.total_price = total_price
                 cart.save()
 
-        return JsonResponse({"errors" : [], "message": "Cart Confirmed Thanks for chossing us!"})
+        return JsonResponse({"errors" : [], "message": "Cart Confirmed Thanks for choosing us!"})
 
     
 
