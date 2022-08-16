@@ -13,9 +13,9 @@ To Install and run the application, we have to do the following steps:
 * To make things clear we have the following entites inside database:
   * *Product* 
   * *Product Unit*(price is defined here)(once we create a new Product Unit a new unique *Inventroy Product Unit Storage* record will be created with the quantity of 0)
-  * *Inventroy Product Unit Storage*(Storage quantity is stored here and each time we confirm a cart the confirmed quantites will subtracted from the storage)
+  * *Inventroy Product Unit Storage*(Storage quantity is stored here and each time we confirm a cart the confirmed quantites will be subtracted from the storage)
   * *Shopping Cart*
-  * *Shopping Cart Product Unit Item*(Represent the Cart Items)
+  * *Shopping Cart Product Unit Item*(Represents the Cart Items)
 * We can access the oppened shoping carts by visiting the following url http://127.0.0.1:8000/cart/oppened-cart-details/id
 * the rquired instance could be accsessed by visiting  http://127.0.0.1:8000/cart/oppened-cart-details/3
 * Another instance that shows that you can change the unit of product could be accessed by visiting http://127.0.0.1:8000/cart/oppened-cart-details/4 
