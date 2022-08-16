@@ -12,8 +12,6 @@ $(document).ready(function(){
     })
 
     $(".quantity").change(function(event){
-        $("#errors").hide()
-        $("#messages").hide()
         item_id = event.target.id.split("-")[1];
         calculate_item_total(item_id)
     })
@@ -33,10 +31,13 @@ $(document).ready(function(){
                     }
                     x = $("#errors").find("p").html(err_str)
                     $("#errors").show()
+                    $(".confirm-btn").prop('disabled', true);
                 }else{
                    y =  $("#message").find("p").html(result.message)
                     $("#message").show()
+                    $(".confirm-btn").hide()
                 }
+               
             },
             contentType: "application/json",
             dataType: 'json'
@@ -45,6 +46,9 @@ $(document).ready(function(){
 })
 
 function calculate_item_total(item_id){
+    $(".confirm-btn").prop('disabled', false);
+        $("#errors").hide()
+        $("#messages").hide()
     item_price = $("#unit-price-" + item_id).val()
     item_quantity = $("#quantity-" + item_id).val()
     $("#total-price-"+item_id).val(item_price * item_quantity) 
