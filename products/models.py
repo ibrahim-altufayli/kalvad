@@ -26,7 +26,7 @@ class ProductUnit(models.Model):
             inventeryProductUnitStorage.save()
 
     def __str__(self) -> str:
-        return self.name + "|" + self.product.name
+        return self.product.name + " | " + self.name
 
 
 class InventroyProductUnitStorage(models.Model):

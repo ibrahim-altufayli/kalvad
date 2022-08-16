@@ -18,7 +18,7 @@ class ShoppingCart(models.Model):
     status = models.CharField(max_length= 2, choices=CartStatus.choices, default=CartStatus.OPPENED)
 
     def __str__(self) -> str:
-        return self.id
+        return str(self.id)
 
 class ShoppingCartProductUnitItem(models.Model):
     shopping_cart = models.ForeignKey(ShoppingCart, on_delete=models.CASCADE, related_name="shopping_cart_product_unit_items")
