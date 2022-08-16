@@ -1,0 +1,103 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% block title %}
+<title>
+    Oppened Cart
+</title>
+{% endblock%}
+{% block libs %}
+    <link href="{% static 'shopping_cart/css/styles.css' %}" rel="stylesheet">
+    <script src="{% static 'shopping_cart/js/scripts.js' %}"></script>
+{% endblock %}
+
+{% block nav %}
+  <nav class="navbar navbar-expand-lg  navbar-background">
+    <div class="container">
+      <a class="navbar-brand" href="/">
+        <img src="{% static 'home/img/logo-top.png' %}" alt="logo" class="img-fluid" title="logo kalvad">
+      </a>
+    </div>
+  </nav>
+  {% endblock %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+
+        {% for item in shopping_cart.items %}
+        <div class="col-md-4 col-sm-6" style="margin-top: 10px;">
+            <div class="card" style="width: 100%;" id="{{item.id}}">
+                <img class="card-img-top" src="{{item.img}}" alt="Card image cap"
+                    width="100%">
+                <div class="card-body">
+                    <h5 class="card-title">{{item.name}}</h5>
+                    <p class="card-text">{{item.description}}</p>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">UNT</span>
+                                <select class="form-select" aria-label="Select Product Unit"
+                                    id="unit-{{item.id}}">
+                                    {% for product_unit in item.product_unit.product.product_units.all %}
+                                    <option value="{{product_unit.id}}" {% if product_unit.id == item.product_unit.id %}selected="selected" {% endif %}>
+                                        {{product_unit.name}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="input-group mb-3">
+                                <input id="unit-price-{{item.id}}" value="{{item.price}}"
+                                    type="number" class="form-control" disabled>
+                                <span class="input-group-text">AED</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">QTY</span>
+                                <input type="number" class="quantity form-control" id="quantity-{{item.id}}"
+                                    value="{{item.quantity}}">
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="input-group mb-3">
+                                <input type="number" class="item-total-price form-control" id="total-price-{{item.id}}"
+                                  value="{{item.total_price}}"  disabled>
+                                <span class="input-group-text">AED</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <hr>
+    <div class="row" style="margin-top: 20px;">
+        <div class="col-md-4 col-sm-12">
+            <div class="input-group mb-3">
+                <span class="input-group-text">Total</span>
+                <input id="cart-total" class="form-control mr-sm-2" value="{{shopping_cart.total_price}}" type="number" 
+                placeholder="total" aria-label="Total" disabled>
+                <span class="input-group-text">AED</span>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <button style="background-color: white;color: #a900ff;" class="confirm-btn btn my-2 my-sm-0" type="button">Confirm Cart</button>
+        </div>
+        <div class="col-md-4 col-sm-12" id="errors" style="display: none;">
+            <p style="color: red;">
+
+            </p>
+        </div>
+        <div class="col-md-4 col-sm-12" id="message" style="display: none;">
+            <p style="color: #a900ff;">
+
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}
