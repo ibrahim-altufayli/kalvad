@@ -5,7 +5,7 @@ To Install and run the application, we have to do the following steps:
 - It is preferable to create and activate a virtual environment to isolate project libs from the global one.
 - Navigate to the project root and run "python manage.py runserver", you do not need to makeigrations, migrate or createsuperuser because the project is shipped with sqllite file that holds everything.
 - No need to collect the static files, files already collected.
--You can access the admin panel by visiting http://127.0.0.1:8000/admin and using username=kalvad/password=P@ssw0rd
+- You can access the admin panel by visiting http://127.0.0.1:8000/admin and using username=kalvad/password=P@ssw0rd
 - We can define new products, product units, shopping carts, cart items inside the admin panel(I did not adjust the admin's UI or functionality because it serves the need of creating the required entities).
 -We can change the inventory storage quantity from the admin by navigating to http://127.0.0.1:8000/admin/products/inventoryproductunitstorage/
 * To make things clear we have the following entities inside the database:
