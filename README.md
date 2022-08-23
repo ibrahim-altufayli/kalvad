@@ -1,5 +1,4 @@
-# kalvad
-Cart Assignment 
+# kalvad Cart Assignment 
 To Install and run the application, we have to do the following steps:
 - We have to install python 3.10 from it is official website https://www.python.org/.
 - Install the required libs by using the updated requirements.txt, please run the following command on the project root folder "pip install to-requirements.txt". 
