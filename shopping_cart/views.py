@@ -69,12 +69,10 @@ class ConfirmCartView(View):
             return JsonResponse({"errors": errors})
 
         # Update Cart Items Data After Validating the Quantities
-        total_price = 0
         for idx, item in enumerate(data):
             shoping_cart_item = ShoppingCartProductUnitItem.objects.get(pk=item["id"])
             shoping_cart_item.price = item["price"]
             shoping_cart_item.quantity = item["quantity"]
-            total_price += shoping_cart_item.price * shoping_cart_item.quantity
             shoping_cart_item.product_unit = ProductUnit.objects.get(
                 pk=item["product_unit_id"]
             )
@@ -90,7 +88,6 @@ class ConfirmCartView(View):
                 cart = shoping_cart_item.shopping_cart
                 cart.status = CartStatus.CONFIRMED
                 cart.close_date = datetime.datetime.now()
-                cart.total_price = total_price
                 cart.save()
 
         return JsonResponse(

@@ -3,6 +3,7 @@ from random import choices
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from products.models import ProductUnit
+from django.db.models import F, Sum
 
 
 class CartStatus(models.TextChoices):
@@ -17,7 +18,9 @@ class ShoppingCart(models.Model):
     close_date = models.DateTimeField(null=True, blank=True)
     total_price = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     shopping_cart_product_units = models.ManyToManyField(
-        ProductUnit, related_name="shopping_carts", through="ShoppingCartProductUnitItem"
+        ProductUnit,
+        related_name="shopping_carts",
+        through="ShoppingCartProductUnitItem",
     )
     status = models.CharField(
         max_length=2, choices=CartStatus.choices, default=CartStatus.OPPENED
@@ -39,7 +42,10 @@ class ShoppingCartProductUnitItem(models.Model):
 
     def save(self, *args, **kwargs):
         super(ShoppingCartProductUnitItem, self).save(*args, **kwargs)
-        self.shopping_cart.total_price += self.price * self.quantity
+        self.shopping_cart.total_price = ShoppingCartProductUnitItem.objects.filter(
+            shopping_cart=self.shopping_cart
+        ).aggregate(total=Sum(F("price") * F("quantity")))["total"]
+        self.shopping_cart.save()
 
     def __str__(self) -> str:
         return (
