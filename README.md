@@ -17,5 +17,6 @@ To Install and run the application, we have to do the following steps:
   * *Shopping Cart*
   * *Shopping Cart Product Unit Item*(Represents the Cart Items)
 * We can access the oppened shoping carts by visiting the following url http://127.0.0.1:8000/cart/oppened-cart-details/id
-* the rquired instance could be accsessed by visiting  http://127.0.0.1:8000/cart/oppened-cart-details/3
+* the required instance could be accsessed by visiting  http://127.0.0.1:8000/cart/oppened-cart-details/3
 * Another instance that shows that you can change the unit of product could be accessed by visiting http://127.0.0.1:8000/cart/oppened-cart-details/4 
+* In order to create new Cart we have to define the cart with total price and define the related *Shopping Cart Product Unit Item* that matches the total price as the logic of creating new cart is not handeled.
