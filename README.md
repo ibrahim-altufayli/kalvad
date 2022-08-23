@@ -7,13 +7,13 @@ To Install and run the application, we have to do the following steps:
 - It is more prefarable to create and activate a virtual enviroment to isolate project libs from global one.
 - Navigate to the project root and run "python manage.py runserver" / you do not need to makeigrations or migrate or createsuperuser because the project is shipped with sqllite file that hold everything.
 - No need to collect static file, files already collected
--You can access the admin by visiting http://127.0.0.1/admin and using username=kalvad/password=P@ssw0rd
+-You can access the admin by visiting http://127.0.0.1:8000/admin and using username=kalvad/password=P@ssw0rd
 - We can define new products, product units, shopping carts, cart items inside the admin(I did not adjusted the admin UI or functionality but it serve the need of creating the required entites).
--We can change the inventory storage quantity from the admin by navigating to http://127.0.0.1:8000/admin/products/inventroyproductunitstorage/
+-We can change the inventory storage quantity from the admin by navigating to http://127.0.0.1:8000/admin/products/inventoryproductunitstorage/
 * To make things clear we have the following entites inside database:
   * *Product* 
-  * *Product Unit*(price is defined here)(once we create a new Product Unit a new unique *Inventroy Product Unit Storage* record will be created with the quantity of 0)
-  * *Inventroy Product Unit Storage*(Storage quantity is stored here and each time we confirm a cart the confirmed quantites will be subtracted from the storage)
+  * *Product Unit*(price is defined here)(once we create a new Product Unit a new unique *Inventory Product Unit Storage* record will be created with the quantity of 0)
+  * *Inventory Product Unit Storage*(Storage quantity is stored here and each time we confirm a cart the confirmed quantites will be subtracted from the storage)
   * *Shopping Cart*
   * *Shopping Cart Product Unit Item*(Represents the Cart Items)
 * We can access the oppened shoping carts by visiting the following url http://127.0.0.1:8000/cart/oppened-cart-details/id

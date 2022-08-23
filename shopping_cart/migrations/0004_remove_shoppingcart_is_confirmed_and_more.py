@@ -10,8 +10,14 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RemoveField(model_name="shoppingcart", name="is_confirmed",),
-        migrations.RemoveField(model_name="shoppingcart", name="is_discarded",),
+        migrations.RemoveField(
+            model_name="shoppingcart",
+            name="is_confirmed",
+        ),
+        migrations.RemoveField(
+            model_name="shoppingcart",
+            name="is_discarded",
+        ),
         migrations.AddField(
             model_name="shoppingcart",
             name="status",

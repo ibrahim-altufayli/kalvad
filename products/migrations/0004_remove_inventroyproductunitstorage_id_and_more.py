@@ -11,7 +11,10 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RemoveField(model_name="inventroyproductunitstorage", name="id",),
+        migrations.RemoveField(
+            model_name="inventroyproductunitstorage",
+            name="id",
+        ),
         migrations.AlterField(
             model_name="inventroyproductunitstorage",
             name="product_unit",

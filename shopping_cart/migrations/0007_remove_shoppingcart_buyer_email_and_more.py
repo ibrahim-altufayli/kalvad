@@ -10,6 +10,12 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RemoveField(model_name="shoppingcart", name="buyer_email",),
-        migrations.RemoveField(model_name="shoppingcart", name="buyer_name",),
+        migrations.RemoveField(
+            model_name="shoppingcart",
+            name="buyer_email",
+        ),
+        migrations.RemoveField(
+            model_name="shoppingcart",
+            name="buyer_name",
+        ),
     ]

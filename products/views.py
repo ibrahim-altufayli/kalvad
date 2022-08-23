@@ -11,6 +11,6 @@ class ProductUnitDetailsView(View):
             "id": qs.id,
             "name": qs.name,
             "product_id": qs.product_id,
-            "price": qs.price
+            "price": qs.price,
         }
         return JsonResponse(product_unit_details)

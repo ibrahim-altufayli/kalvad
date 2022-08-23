@@ -11,12 +11,18 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.RenameField(
-            model_name="shoppingcart", old_name="saler_email", new_name="buyer_email",
+            model_name="shoppingcart",
+            old_name="saler_email",
+            new_name="buyer_email",
         ),
         migrations.RenameField(
-            model_name="shoppingcart", old_name="saler_name", new_name="buyer_name",
+            model_name="shoppingcart",
+            old_name="saler_name",
+            new_name="buyer_name",
         ),
         migrations.RenameField(
-            model_name="shoppingcart", old_name="sale_date", new_name="close_date",
+            model_name="shoppingcart",
+            old_name="sale_date",
+            new_name="close_date",
         ),
     ]

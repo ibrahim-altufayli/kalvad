@@ -44,7 +44,9 @@ class Migration(migrations.Migration):
                 to="products.productunit",
             ),
         ),
-        migrations.DeleteModel(name="ShoppingCartProductUnit",),
+        migrations.DeleteModel(
+            name="ShoppingCartProductUnit",
+        ),
         migrations.AddField(
             model_name="shoppingcartproductunititem",
             name="shopping_cart",
